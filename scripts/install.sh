@@ -22,7 +22,7 @@ dockerid=`awk -F\: '/docker/ {print $3}' /etc/group`
 echo "PGID=$dockerid" >> ../.env
 timezone=$(cat /etc/timezone)
 echo $timezone
-echo TZ=$timezone >> ../.env
+echo "TZ=$timezone" >> ../.env
 echo "USERDIR=$HOME" >> ../.env
 dir=${PWD%/*}
 echo "DOCKERDIR=$dir" >> ../.env
