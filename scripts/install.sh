@@ -20,7 +20,9 @@ echo $puid
 echo PUID=$puid >> ../.env
 dockerid=`awk -F\: '/docker/ {print $3}' /etc/group`
 echo "PGID=$dockerid" >> ../.env
-echo 'TZ="America/Phoenix"' >> ../.env
+timezone=$(cat /etc/timezone)
+echo $timezone
+echo TZ=$timezone >> ../.env
 echo "USERDIR=$HOME" >> ../.env
 dir=${PWD%/*}
 echo "DOCKERDIR=$dir" >> ../.env
